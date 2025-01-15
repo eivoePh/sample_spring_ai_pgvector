@@ -1,0 +1,30 @@
+server:
+  port: 8087
+spring:
+    application:
+        name: sample_spring_ai_pgvector
+    datasource:
+        url: jdbc:postgresql://localhost:5432/postgres?schema=public
+        username: postgres
+        password: postgres
+        driver-class-name: org.postgresql.Driver
+    ai:
+        ollama:
+            base-url: http://localhost:11434
+            chat:
+                #model: qwen2.5:0.5b
+                #model: qwen2.5:3b
+                model: gemma2:2b
+                #model: qwen2.5:7b
+                #model: llama3:8b
+                options:
+                    num-ctx: 32768
+            embedding:
+                enabled: true
+                model: viosay/conan-embedding-v1
+                #model: mxbai-embed-large
+        vectorstore:
+            pgvector:
+                index-type: hnsw
+                distance-type: cosine-distance
+                dimensions: 1536

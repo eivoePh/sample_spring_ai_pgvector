@@ -1,4 +1,4 @@
-package com.example.sample_spring_ai_pgvector;
+package com.example.samplespringaipgvector;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
