@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: spring-ai-qwen-examples
+  datasource:
+    url: jdbc:postgresql://localhost:5432/vector_store?schema=public
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  ai:
+    dashscope:
+      chat:
+        # model: qwen-turbo
+        # model: qwen-plus
+        model: qwen-max
+      embedding:
+        enabled: true
+        options:
+          # https://help.aliyun.com/zh/model-studio/user-guide/embedding?spm=a2c4g.11186623.help-menu-2400256.d_1_0_6.47171d1cNGooFe&scm=20140722.H_2842587._.OR_help-T_cn~zh-V_1
+          model: text-embedding-v3
+          dimension: 1024
+    vectorstore:
+      pgvector:
+          index-type: hnsw
+          distance-type: cosine-distance
+          dimensions: 1024
