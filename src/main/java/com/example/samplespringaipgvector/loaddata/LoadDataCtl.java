@@ -23,7 +23,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class LoadDataCtl {
 
-    @Value("classpath:data/1.txt")
+    @Value("classpath:data.txt")
     private Resource dataResource;
     private final VectorStore vectorStore;
 

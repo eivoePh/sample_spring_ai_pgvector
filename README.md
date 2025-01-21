@@ -2,15 +2,31 @@
 
 # RAG Example
 
-## 1. 第一步 将文本数据存入Vector库
+### 准备 ollama 本地模型
 
-http://127.0.0.1:8087/load_data
+```sh
+brew install ollama
+export OLLAMA_HOST="0.0.0.0" && ollama serve
+```
 
+```sh
+ollama run gemma2:2b
+ollama run viosay/conan-embedding-v1:latest
+```
 
-## 2. 第二步 进行对话
+## 准备 vector db
 
-http://localhost:8087/chat?msg=我可以用于商业用途吗
+```sh
+cd dockerfiles
+docker compose up -d
+```
 
+## 将文本数据存入Vector库
 
+[将data.txt文件中的数据存入Vector库](http://localhost:8080/load_data)
+
+## 进行对话
+
+[进行对话](http://localhost:8080/chat?msg=我可以用于商业用途吗)
 
 ref: (https://github.com/benayat/rag-with-spring-ai/tree/master)
